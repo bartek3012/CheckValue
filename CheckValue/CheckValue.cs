@@ -4,12 +4,12 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace CheckValue
+namespace CheckValues
 {
     /// <summary>
     /// This library can check if user value is correct and show problem.
     /// </summary>
-    class CheckValue
+   public class CheckValue
     {
         /// <param name="tBlockMessage">Place to write error</param>
         /// <param name="tBoxValue">Take value form there. 
