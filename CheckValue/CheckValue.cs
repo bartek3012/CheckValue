@@ -20,14 +20,14 @@ namespace CheckValues
         {
             textBoxValue = tBoxValue;
             textBlockMessage = tBlockMessage;
-            max = _max;
-            min = _min;
+            Max = _max;
+            Min = _min;
         }
 
         private TextBox textBoxValue;
         private TextBlock textBlockMessage;
-        private double max;
-        private double min;
+        public double Max {private get; set; }
+        public double Min {private get; set; }
         public bool Error { get; private set; }
 
         private static string changeDotOnComma(string s_number)
@@ -43,8 +43,8 @@ namespace CheckValues
             try
             {
                 value = double.Parse(changeDotOnComma(textBoxValue.Text));
-                if (value > max) throw new Exception("ZaDuzy");
-                if (value < min) throw new Exception("ZaMaly");
+                if (value > Max) throw new Exception("ZaDuzy");
+                if (value < Min) throw new Exception("ZaMaly");
                 textBlockMessage.Text = "";
                 textBoxValue.Background = Brushes.White;
                 Error = false;
@@ -59,11 +59,11 @@ namespace CheckValues
             {
                 if (error_code.Message == "ZaDuzy")
                 {
-                    textBlockMessage.Text = $"Podano zbyt dużą liczbę. Maksymalna wartość to {max}";
+                    textBlockMessage.Text = $"Podano zbyt dużą liczbę. Maksymalna wartość to {Max}";
                 }
                 if (error_code.Message == "ZaMaly")
                 {
-                    textBlockMessage.Text = $"Podano zbyt małą liczbę. Minimalna wartość to {min}";
+                    textBlockMessage.Text = $"Podano zbyt małą liczbę. Minimalna wartość to {Min}";
                 }
                 textBoxValue.Background = System.Windows.Media.Brushes.LightPink;
                 Error = true;
